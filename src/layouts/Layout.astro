@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "A professional community builder and software engineer that does a bit of everything, but nothing specially well."
+} = Astro.props;
+
+import Navigation from '../components/Navigation.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import DarkModeToggle from '../components/DarkModeToggle.astro';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={Astro.url} />
+    <title>{title}</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/water-dark.css" media="(prefers-color-scheme: dark)" />
+    <link rel="stylesheet" href="/styles/water-light.css" media="(prefers-color-scheme: light)" />
+    <link rel="stylesheet" href="/styles/global.css" />
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/68bd2bccda.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <Navigation />
+    <main>
+      <slot />
+    </main>
+    <SocialLinks />
+    <DarkModeToggle />
+  </body>
+</html>

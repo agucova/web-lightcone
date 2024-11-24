@@ -1,0 +1,26 @@
+---
+---
+
+<dark-mode-toggle permanent></dark-mode-toggle>
+
+<script>
+  // We need to check if the component exists and hasn't been defined before
+  if (!customElements.get('dark-mode-toggle')) {
+    // Dynamic import of the module
+    import('/js/dark-mode-toggle.mjs?url').then((module) => {
+      // The module will handle the custom element registration
+      console.log('Dark mode toggle module loaded');
+    }).catch(err => {
+      console.error('Error loading dark mode toggle:', err);
+    });
+  }
+</script>
+
+<style>
+  dark-mode-toggle {
+    --dark-mode-toggle-light-icon: url(/images/sun.svg);
+    --dark-mode-toggle-dark-icon: url(/images/moon.svg);
+    --dark-mode-toggle-color: currentColor;
+    --dark-mode-toggle-icon-size: 1.2rem;
+  }
+</style>

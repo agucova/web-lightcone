@@ -1,0 +1,83 @@
+@import "./water-light.css" (prefers-color-scheme: light);
+@import "./water-dark.css" (prefers-color-scheme: dark);
+@import "./style-dark.css" (prefers-color-scheme: dark);
+
+i.fas,
+i.fab {
+  color: var(--text-main);
+}
+
+main {
+  margin-top: 0px;
+  margin-bottom: 40px;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+nav {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  /* flex */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+  max-width: 250px;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+body {
+  hyphens: auto;
+}
+
+p {
+  text-align: justify;
+}
+
+#social {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#social a,
+#upper-nav a {
+  padding: 0.2em;
+
+  @media (pointer: coarse) {
+    padding: 0.3em;
+  }
+}
+
+.pgp-wrapper {
+  font-family: "courier new", fixed, monospace;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+
+.highlight > pre {
+  background-color: unset !important;
+}
+
+ul li {
+  /* Increase the default spacing between list items */
+  margin-bottom: 0.4em;
+}
+
+dark-mode-toggle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 0.5em;
+}

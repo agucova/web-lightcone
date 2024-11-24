@@ -1,0 +1,34 @@
+---
+const navItems = [
+  { href: "/", title: "Home", label: "/" },
+  { href: "/now", title: "Now", label: "/now" },
+  { href: "/pgp", title: "PGP", label: "/pgp" },
+  { href: "https://admonymous.co/agucova", title: "Feedback", label: "/feedback" },
+  { href: "https://www.linkedin.com/in/agucova/", title: "CV", label: "/cv" },
+];
+---
+
+<nav id="upper-nav">
+  {
+    navItems.map(({ href, title, label }) => (
+      <div>
+        <a class="container" {href} {title}>{label}</a>
+      </div>
+    ))
+  }
+  <div>
+    <a href="#" id="meet-link">/meet</a>
+  </div>
+</nav>
+
+<script>
+  // Calendly initialization
+  const meetLink = document.getElementById('meet-link');
+  if (meetLink) {
+    meetLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      // @ts-ignore
+      Calendly.initPopupWidget({url: 'https://calendly.com/agucova'});
+    });
+  }
+</script>
